@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;intefaces&apos; to &apos;interfaces&apos;&#x0A;- Original project: &apos;teste&apos;&#x0A;- Original element: &apos;teste/src/intefaces&apos;&#x0A;- Renamed element: &apos;teste/src/interfaces&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;intefaces&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;intefaces" name="interfaces" qualified="false" references="true" stamp="1528658248561" textual="false" version="1.0"/>
+</session>

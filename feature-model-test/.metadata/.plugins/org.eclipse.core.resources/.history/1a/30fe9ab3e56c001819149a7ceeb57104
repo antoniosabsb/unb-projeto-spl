@@ -1,0 +1,13 @@
+package feature;
+
+import interfaces.Print;
+
+public class World implements Print {
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

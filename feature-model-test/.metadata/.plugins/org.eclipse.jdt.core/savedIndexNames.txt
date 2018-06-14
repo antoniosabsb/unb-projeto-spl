@@ -1,0 +1,9 @@
+INDEX VERSION 1.130+/home/antonio/desenv/workspaces/teste/feature-model-test/.metadata/.plugins/org.eclipse.jdt.core
+857667512.index
+3976813179.index
+3609505478.index
+4213382786.index
+3227404939.index
+2489758775.index
+3820772981.index
+674433445.index
