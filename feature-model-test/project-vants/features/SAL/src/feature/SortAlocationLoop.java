@@ -6,7 +6,7 @@ public class SortAlocationLoop implements Print {
 
 	@Override
 	public void print() {
-		System.out.println("SortAlocationLoop");
+		System.out.println("SortAlocationLoop-2");
 	}
 
 }

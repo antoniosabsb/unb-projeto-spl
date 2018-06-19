@@ -6,7 +6,7 @@ public class LimitAlocationLoop implements Print {
 
 	@Override
 	public void print() {
-		System.out.println("LimitAlocationLoop");
+		System.out.println("LimitAlocationLoop-2");
 	}
 
 }
