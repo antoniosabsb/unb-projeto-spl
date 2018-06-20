@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+    <properties/>
+    <struct>
+        <and abstract="true" mandatory="true" name="fopvants">
+            <and mandatory="true" name="Swarm-GAP">
+                <and name="AllocationLoop">
+                    <feature name="Sorting and Allocation Loop"/>
+                    <feature name="Limit and Allocation Loop"/>
+                </and>
+            </and>
+            <and mandatory="true" name="VANTs">
+                <alt name="Câmera">
+                    <alt name="High Definition">
+                        <feature name="HD"/>
+                        <feature name="Full HD"/>
+                        <feature name="Ultra HD"/>
+                    </alt>
+                    <alt name="Low Definition">
+                        <feature name="VGA"/>
+                        <feature name="Web Cam"/>
+                    </alt>
+                    <feature name="Night Vision"/>
+                </alt>
+                <alt name="Autonomia">
+                    <feature name="1 Bateria"/>
+                    <feature name="2 Baterias"/>
+                    <feature name="4 Baterias"/>
+                </alt>
+                <alt name="Comunicação">
+                    <feature name="Base"/>
+                    <feature name="Central"/>
+                    <feature name="Completo"/>
+                </alt>
+            </and>
+        </and>
+    </struct>
+    <constraints>
+        <rule>
+            <imp>
+                <var>Limit and Allocation Loop</var>
+                <not>
+                    <var>Sorting and Allocation Loop</var>
+                </not>
+            </imp>
+        </rule>
+    </constraints>
+    <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+    <comments/>
+    <featureOrder userDefined="false"/>
+</featureModel>

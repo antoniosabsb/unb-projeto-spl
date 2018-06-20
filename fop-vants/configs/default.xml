@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="fopvants"/>
+    <feature automatic="selected" name="Swarm-GAP"/>
+    <feature manual="selected" name="AllocationLoop"/>
+    <feature automatic="selected" name="VANTs"/>
+    <feature automatic="selected" manual="selected" name="Câmera"/>
+    <feature automatic="selected" name="High Definition"/>
+    <feature automatic="unselected" name="HD"/>
+    <feature manual="selected" name="Full HD"/>
+    <feature automatic="unselected" name="Ultra HD"/>
+    <feature automatic="unselected" name="Low Definition"/>
+    <feature automatic="unselected" name="VGA"/>
+    <feature automatic="unselected" name="Web Cam"/>
+    <feature automatic="unselected" name="Night Vision"/>
+    <feature automatic="selected" manual="selected" name="Autonomia"/>
+    <feature automatic="unselected" name="1 Bateria"/>
+    <feature manual="selected" name="2 Baterias"/>
+    <feature automatic="unselected" name="4 Baterias"/>
+</configuration>
