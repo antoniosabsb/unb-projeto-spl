@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move element &apos;Hello.java&apos; to &apos;project-spl-Hello/src/feature&apos;&#x0A;- Original project: &apos;project-spl-Hello&apos;&#x0A;- Destination element: &apos;project-spl-Hello/src/feature&apos;&#x0A;- Original element: &apos;Hello.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;feature" element1="/src&lt;{Hello.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1528658909990" units="1" version="1.0"/>
-</session>

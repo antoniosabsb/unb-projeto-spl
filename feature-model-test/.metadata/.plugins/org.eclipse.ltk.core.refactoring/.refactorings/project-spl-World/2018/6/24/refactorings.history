@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy package &apos;feature&apos; to &apos;project-vants-SAL/src&apos;&#x0A;- Original project: &apos;project-spl-World&apos;&#x0A;- Destination element: &apos;project-vants-SAL/src&apos;&#x0A;- Original element: &apos;project-spl-World/src/feature&apos;" description="Copy package" destination="=project-vants-SAL/src" element1="/src&lt;feature" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1528825359638" version="1.0"/>
-</session>
