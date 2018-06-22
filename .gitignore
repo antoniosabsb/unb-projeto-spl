@@ -5,7 +5,5 @@ bin/
 target/
 .DS_Store
 ._.DS_Store
-.classpath
-.project
 .featureide/
 lib/
