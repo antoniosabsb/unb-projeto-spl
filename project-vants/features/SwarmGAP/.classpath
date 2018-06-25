@@ -16,6 +16,10 @@
 	<classpathentry kind="lib" path="/usr/jdk1.8.0_162/jre/lib/ext/nashorn.jar"/>
 	<classpathentry kind="lib" path="/usr/jdk1.8.0_162/jre/lib/ext/jfxrt.jar"/>
 	<classpathentry kind="lib" path="/usr/jdk1.8.0_162/jre/lib/ext/jaccess.jar"/>
+	<classpathentry kind="lib" path="lib/reflections-0.9.11.jar"/>
+	<classpathentry kind="lib" path="lib/google-collect-1.0-rc1.jar"/>
+	<classpathentry kind="lib" path="lib/google-collections-1.0-rc1.jar"/>
+	<classpathentry kind="lib" path="lib/guava-20.0.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="/project-vants"/>
 	<classpathentry kind="output" path="bin"/>
