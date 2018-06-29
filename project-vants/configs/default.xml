@@ -2,4 +2,7 @@
 <configuration>
     <feature automatic="selected" name="projectvants"/>
     <feature automatic="selected" name="SwarmGAP"/>
+    <feature automatic="selected" name="AL"/>
+    <feature automatic="unselected" name="SAL"/>
+    <feature manual="selected" name="LAL"/>
 </configuration>

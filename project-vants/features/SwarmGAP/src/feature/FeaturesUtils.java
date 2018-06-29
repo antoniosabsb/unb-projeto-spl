@@ -1,11 +1,10 @@
-package br.vants.feature;
+package feature;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.vants.interfaces.Recurso;
-import interfaces.Print;
+import feature.recurso.interfaces.Recurso;
 
 public class FeaturesUtils {
 	
@@ -31,22 +30,21 @@ public class FeaturesUtils {
 	}
 	
 	public static List<Recurso> retornaRecursos(){
-		System.out.println("aqui1");
 		List<Recurso> recursos = new ArrayList<>(1);
-		//C:\Desenvolvimento\workspaces\projeto-spl\project-vants\src\br\vants\recurso
-		//C:\Desenvolvimento\workspaces\projeto-spl\project-vants\features\SwarmGAP\src\br\vants\recurso\Camera.java
-		File dir = new File(System.getProperty("user.dir")+"\\src\\br\\vants\\recurso\\");
-		System.out.println("aqui2");
-		System.out.println("aqui: "+dir);
-		System.out.println(dir.listRoots());
+		File dir = new File(System.getProperty("user.dir")+"/src/recurso/");
+		if(!dir.isDirectory()){
+			dir = new File(System.getProperty("user.dir")+"/features/SwarmGAP/src/feature/recurso/");
+		}
 		if(dir.isDirectory()){
 			for(File obj : dir.listFiles()){
-				String [] lista = obj.toString().replace("\\",";").split(";");
+				String [] lista = obj.toString().split("/");
 				String nomeClasse = lista[lista.length-1];
+				if(nomeClasse.startsWith("inter")){
+					continue;
+				}
 				nomeClasse = nomeClasse.substring(0, nomeClasse.length()-5);
-				System.out.println("aqui3");
 				try {
-					recursos.add((Recurso) Class.forName("br.vants.recurso."+nomeClasse).newInstance());
+					recursos.add((Recurso) Class.forName("feature.recurso."+nomeClasse).newInstance());
 				} catch (IllegalAccessException | ClassNotFoundException | InstantiationException e) {
 					e.printStackTrace();
 				}

@@ -1,16 +1,26 @@
 package feature;
 
 public enum Tendencia {
-	TENDENCIA_BAIXA("Baixa"),
-	TENDENCIA_MEDIA("Media"),
-	TENDENCIA_ALTA("Alta");
+	TENDENCIA_BAIXA(1, "Baixa"),
+	TENDENCIA_MEDIA(2, "Media"),
+	TENDENCIA_ALTA(3, "Alta");
 	
 	private String nome;
+	private int codigo;
 	
 	
 
-	private Tendencia(String nome) {
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	private Tendencia(int codigo, String nome) {
 		this.nome = nome;
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -19,6 +29,19 @@ public enum Tendencia {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public static Tendencia retornaTendenciaPorCodigo(int codigo) {
+		for (int i = 0; i<Tendencia.values().length;i++) {
+			if(Tendencia.values()[0].getCodigo() == codigo) {
+				return Tendencia.values()[0];
+			}
+		}
+		return null;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(Tendencia.retornaTendenciaPorCodigo(1).getNome());
 	}
 	
 }

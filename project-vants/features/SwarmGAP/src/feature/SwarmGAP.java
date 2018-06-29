@@ -1,65 +1,69 @@
-package br.vants.feature;
+package feature;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
-import br.vants.interfaces.Recurso;
+import feature.recurso.interfaces.Recurso;
 import interfaces.Print;
 
 public class SwarmGAP implements Print {
 
 	private Drone drone;
+	private List<Tarefa> tarefas;
 
 	public SwarmGAP() {}
 	
-	public SwarmGAP(Drone drone) {
+	public SwarmGAP(Drone drone, List<Tarefa> tarefas) {
 		this.drone = drone;
+		this.tarefas = tarefas;
 	}
 
-	public void processaAnalise() {
-		List<Recurso> recursosDrone = drone.getRecursos();
+	public List<Tarefa> processaAnalise(boolean exibeLog) {
+		StringBuilder log = new StringBuilder();
+		log.append("SwarmGAP Tempo Inicial "+ new SimpleDateFormat("HH:mm:ss:SSS").format(Calendar.getInstance().getTime()));
+		log.append("\nCapacidade Drone: "+ Tendencia.retornaTendenciaPorCodigo(drone.getRecursos().size()));
 		
+		log.append("\nQuantidade Tarefas Antes: "+ tarefas.size());
+
+		List<Recurso> recursosDrone = drone.getRecursos();
 		Tarefa tarefaAExcluir = null; 
-		for (Tarefa tarefa : FeaturesUtils.retornaTarefas()) {
+		for (Tarefa tarefa : tarefas) {
 			boolean retorno = false;
 			List<Recurso> recursosTarefa = tarefa.getRecursos();
 			for (Recurso recurso : recursosTarefa) {
-				 retorno = recursosDrone.contains(recurso);
-				 if(!retorno) {
-					 break;
-				 }
+				for (Recurso recursoD : recursosDrone) {
+					retorno = recursoD.getClass().equals(recurso.getClass());
+					}
+				if(retorno) {
+					break;
+				}
 			}
 			if(retorno) {
 				drone.setVisitado(true);
 				tarefaAExcluir = tarefa;
+				log.append("\nTarefa executada: "+ tarefa.getTendencia().getNome());
 				break;
 			}
 		}
 		if(tarefaAExcluir != null) {
-			FeaturesUtils.retornaRecursos().remove(tarefaAExcluir);
+			tarefas.remove(tarefaAExcluir);
 		}
+		log.append("\nQuantidade Tarefas Atual: "+ tarefas.size());
+		log.append("\nSwarmGAP Tempo Final "+ new SimpleDateFormat("HH:mm:ss:SSS").format(Calendar.getInstance().getTime()));
+		if(exibeLog) {
+			System.out.println(log);
+		}
+		return tarefas;
 	}
 	
 	@Override
 	public void print() {
-		System.out.println("SwarmGAP-1");
-		System.out.println("Lista de Tarefas Antes do Swarm...");
-		System.out.println("teste1");
-		List<Tarefa> tarefas = FeaturesUtils.retornaTarefas();
-		System.out.println("teste2");
-		SwarmGAP swarm = new SwarmGAP(FeaturesUtils.retornaDrone(Tendencia.TENDENCIA_MEDIA));
-		for (Tarefa tarefa : tarefas) {
-			System.out.println(tarefa.getTendencia().getNome());
+		if(tarefas == null) {
+			tarefas = FeaturesUtils.retornaTarefas();
 		}
-		swarm.processaAnalise();
-		System.out.println("Lista de Tarefas Depois do Swarm...");
-		for (Tarefa tarefa : tarefas) {
-			System.out.println(tarefa.getTendencia().getNome());
-		}
+		SwarmGAP swarm = new SwarmGAP(FeaturesUtils.retornaDrone(Tendencia.TENDENCIA_MEDIA), tarefas);
+		swarm.processaAnalise(true);
 	}
 	
-	public static void main(String[] args) {
-		SwarmGAP sw = new SwarmGAP();
-		sw.print();
-	}
-
 }
