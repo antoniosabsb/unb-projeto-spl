@@ -22,7 +22,7 @@ public class SwarmGAP implements Print {
 	public List<Tarefa> processaAnalise(boolean exibeLog) {
 		StringBuilder log = new StringBuilder();
 		log.append("SwarmGAP Tempo Inicial "+ new SimpleDateFormat("HH:mm:ss:SSS").format(Calendar.getInstance().getTime()));
-		log.append("\nCapacidade Drone: "+ Tendencia.retornaTendenciaPorCodigo(drone.getRecursos().size()));
+		log.append("\nCapacidade Drone: "+ Tendencia.retornaTendenciaPorCodigo(drone.getRecursos().size()).getNome());
 		
 		log.append("\nQuantidade Tarefas Antes: "+ tarefas.size());
 
@@ -31,12 +31,12 @@ public class SwarmGAP implements Print {
 		for (Tarefa tarefa : tarefas) {
 			boolean retorno = false;
 			List<Recurso> recursosTarefa = tarefa.getRecursos();
-			for (Recurso recurso : recursosTarefa) {
+			for (Recurso recursoT : recursosTarefa) {
 				for (Recurso recursoD : recursosDrone) {
-					retorno = recursoD.getClass().equals(recurso.getClass());
+					retorno = recursoD.getClass().equals(recursoT.getClass());
+					if(retorno) {
+						break;
 					}
-				if(retorno) {
-					break;
 				}
 			}
 			if(retorno) {
@@ -59,11 +59,13 @@ public class SwarmGAP implements Print {
 	
 	@Override
 	public void print() {
-		if(tarefas == null) {
+		/**
+		 * if(tarefas == null) {
 			tarefas = FeaturesUtils.retornaTarefas();
 		}
-		SwarmGAP swarm = new SwarmGAP(FeaturesUtils.retornaDrone(Tendencia.TENDENCIA_MEDIA), tarefas);
+		SwarmGAP swarm = new SwarmGAP(FeaturesUtils.retornaDrone(Tendencia.TENDENCIA_ALTA), tarefas);
 		swarm.processaAnalise(true);
+		 * */
 	}
 	
 }

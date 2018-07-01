@@ -33,15 +33,15 @@ public enum Tendencia {
 	
 	public static Tendencia retornaTendenciaPorCodigo(int codigo) {
 		for (int i = 0; i<Tendencia.values().length;i++) {
-			if(Tendencia.values()[0].getCodigo() == codigo) {
-				return Tendencia.values()[0];
+			if(Tendencia.values()[i].getCodigo() == codigo) {
+				return Tendencia.values()[i];
 			}
 		}
 		return null;
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(Tendencia.retornaTendenciaPorCodigo(1).getNome());
+		System.out.println(Tendencia.retornaTendenciaPorCodigo(2).getNome());
 	}
 	
 }
