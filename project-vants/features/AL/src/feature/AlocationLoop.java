@@ -10,8 +10,10 @@ public class AlocationLoop implements Print {
 
 	@Override
 	public void print() {
-		/*
-		 */
+		execute();
+	}
+
+	private void execute() {
 		List<Tarefa> tarefas = FeaturesUtils.retornaTarefas();
 		int size = tarefas.size();
 		System.out.println("TOTAL TAREFAS ANTES AL: "+ size);

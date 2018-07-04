@@ -18,5 +18,6 @@
 	<classpathentry kind="lib" path="/usr/jdk1.8.0_162/jre/lib/ext/jaccess.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="/project-vants"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/project-vants-SwarmGAP"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -17,11 +17,7 @@
 	<classpathentry kind="lib" path="/usr/jdk1.8.0_162/jre/lib/ext/jfxrt.jar"/>
 	<classpathentry kind="lib" path="/usr/jdk1.8.0_162/jre/lib/ext/jaccess.jar"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="src" path="/project-vants"/>
-	<classpathentry kind="lib" path="/project-vants/lib/SwarmGAP.jar"/>
-	<classpathentry kind="lib" path="/project-vants/lib/AL.jar"/>
+	<classpathentry kind="src" path="/project-vants"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/project-vants-SwarmGAP"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/project-vants-LAL"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/project-vants-SAL"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

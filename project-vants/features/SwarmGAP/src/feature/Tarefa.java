@@ -8,7 +8,7 @@ import feature.recurso.Holofote;
 import feature.recurso.VelocidadeTurbo;
 import feature.recurso.interfaces.Recurso;
 
-public class Tarefa {
+public class Tarefa implements Comparable {
 	
 	private Tendencia tendencia;
 	private Drone drone;
@@ -58,5 +58,14 @@ public class Tarefa {
 			break;
 		}
 		return retorno;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		if(tendencia.getCodigo() < ((Tarefa)o).getTendencia().getCodigo())
+			return -1;
+		else if(tendencia.getCodigo() > ((Tarefa)o).getTendencia().getCodigo())
+			return 1;
+		return 0;
 	}
 }
