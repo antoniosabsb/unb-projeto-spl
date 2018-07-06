@@ -1,7 +1,7 @@
 package feature;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import feature.recurso.interfaces.Recurso;
@@ -19,9 +19,10 @@ public class SwarmGAP implements Print {
 		this.tarefas = tarefas;
 	}
 
-	public List<Tarefa> processaAnalise(boolean exibeLog) {
+	public FeatureDTO processaAnalise(boolean exibeLog) {
 		StringBuilder log = new StringBuilder();
-		log.append("SwarmGAP Tempo Inicial "+ new SimpleDateFormat("HH:mm:ss:SSS").format(Calendar.getInstance().getTime()));
+		Date dtInicial = Calendar.getInstance().getTime();
+		log.append("\nSwarmGAP Tempo Inicial "+ FeaturesUtils.formataData(dtInicial));
 		log.append("\nCapacidade Drone: "+ Tendencia.retornaTendenciaPorCodigo(drone.getRecursos().size()).getNome());
 		
 		log.append("\nQuantidade Tarefas Antes: "+ tarefas.size());
@@ -45,16 +46,21 @@ public class SwarmGAP implements Print {
 				log.append("\nTarefa executada: "+ tarefa.getTendencia().getNome());
 				break;
 			}
+			
 		}
 		if(tarefaAExcluir != null) {
 			tarefas.remove(tarefaAExcluir);
 		}
-		log.append("\nQuantidade Tarefas Atual: "+ tarefas.size());
-		log.append("\nSwarmGAP Tempo Final "+ new SimpleDateFormat("HH:mm:ss:SSS").format(Calendar.getInstance().getTime()));
+		Date dtFinal = Calendar.getInstance().getTime();
+		log.append("\nSwarmGAP Tempo Final "+ FeaturesUtils.formataData(dtFinal));
+		log.append("\nTempo decorrido: "+ FeaturesUtils.diferencaEntreDatas(dtInicial, dtFinal));
 		if(exibeLog) {
 			System.out.println(log);
 		}
-		return tarefas;
+		FeatureDTO featureDTO = new FeatureDTO();
+		featureDTO.setDrone(drone);
+		featureDTO.setTarefas(tarefas);
+		return featureDTO;
 	}
 	
 	@Override

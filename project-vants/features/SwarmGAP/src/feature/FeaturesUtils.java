@@ -1,32 +1,43 @@
 package feature;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import feature.recurso.interfaces.Recurso;
 
 public class FeaturesUtils {
 	
-	public static List<Tarefa> retornaTarefas() {
+	public static List<Tarefa> retornaTarefas(int qtdRepeticao) {
 		List<Tarefa>tarefas = null;
 		if(tarefas == null){
 			tarefas = new ArrayList<>();
-			tarefas.add(new Tarefa(Tendencia.TENDENCIA_ALTA, FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_ALTA), null));
-			tarefas.add(new Tarefa(Tendencia.TENDENCIA_MEDIA,FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_MEDIA), null));
-			tarefas.add(new Tarefa(Tendencia.TENDENCIA_BAIXA,FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_BAIXA), null));
+			for (int i = 0; i < qtdRepeticao; i++) {
+				tarefas.add(new Tarefa(Tendencia.TENDENCIA_ALTA, FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_ALTA), null));
+				tarefas.add(new Tarefa(Tendencia.TENDENCIA_MEDIA,FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_MEDIA), null));
+				tarefas.add(new Tarefa(Tendencia.TENDENCIA_BAIXA,FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_BAIXA), null));
+			}
 		}
 		return tarefas;
+	}
+	
+	public static List<Drone> retornaDrones() {
+		List<Drone>drones = null;
+		if(drones == null){
+			drones = new ArrayList<>();
+			drones.add(retornaDrone(Tendencia.TENDENCIA_BAIXA));
+			drones.add(retornaDrone(Tendencia.TENDENCIA_MEDIA ));
+			drones.add(retornaDrone(Tendencia.TENDENCIA_ALTA));
+		}
+		return drones;
 	}
 	
 	public static Drone retornaDrone(Tendencia tendencia){
 		Drone drone = new Drone();
 		drone.setRecursos(FeaturesUtils.retornaRecursos(tendencia));
 		return drone;
-	}
-	
-	public static void main(String[] args) {
-		FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_BAIXA).get(0).execute();
 	}
 	
 	public static List<Recurso> retornaRecursos(){
@@ -72,6 +83,18 @@ public class FeaturesUtils {
 			break;
 		}
 		return recursos;
+	}
+	
+	public static String formataData(Date data) {
+		return new SimpleDateFormat("HH:mm:ss:SSS").format(data);
+	}
+	
+	public static long diferencaEntreDatas(Date dtInicial, Date dtFinal) {
+		return dtFinal.getTime() - dtInicial.getTime();
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 
 }
