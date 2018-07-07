@@ -4,7 +4,7 @@ public class Recurso extends RecursoDecorator{
 	
 	@Override
 	public void execute() {
-		System.out.println("Recurso do Drone");
+		System.out.println("TESTE PADRÃO  Decorator");
 	}
 
 }

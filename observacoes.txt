@@ -1,3 +1,7 @@
 Para a apresentação teremos(entre outros) slides como os seguintes topicos
 - Conceito dos padrões de projeto(Template-method, Decorator, Strategy, Observer)
 - Conceito do SwarmGAP, AL, SAL, LAL
+
+Objetivos
+1) Implementar os requisitos do Artigo;
+2) Utilizar pelo menos os 4 padroes de projetos constantes no livro;

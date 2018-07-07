@@ -2,6 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/LAL.jar"/>
+	<classpathentry kind="lib" path="lib/SAL.jar"/>
 	<classpathentry kind="lib" path="lib/SwarmGAP.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
