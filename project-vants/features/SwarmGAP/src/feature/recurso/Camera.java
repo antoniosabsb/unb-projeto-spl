@@ -1,12 +1,23 @@
 package feature.recurso;
 
-import feature.recurso.interfaces.Recurso;
+import feature.recurso.decorator.Decorator;
+import feature.recurso.decorator.RecursoDecorator;
 
-public class Camera implements Recurso{
+public class Camera extends Decorator{
+	
+	public Camera() {}
 
-	@Override
-	public void execute() {
+	public Camera(RecursoDecorator component) {
+		super(component);
+	}
+
+	private void executeCamera() {
 		System.out.println("Usando Camera.");
+	}
+	
+	public void execute() {
+		super.execute();
+		executeCamera();
 	}
 	
 }

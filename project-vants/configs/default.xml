@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
     <feature automatic="selected" name="projectvants"/>
-    <feature automatic="selected" name="SwarmGAP"/>
-    <feature manual="selected" name="AL"/>
-    <feature automatic="unselected" name="SAL"/>
-    <feature automatic="unselected" name="LAL"/>
+    <feature manual="selected" name="SwarmGAP"/>
 </configuration>

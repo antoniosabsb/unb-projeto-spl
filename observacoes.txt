@@ -1,0 +1,3 @@
+Para a apresentação teremos(entre outros) slides como os seguintes topicos
+- Conceito dos padrões de projeto(Template-method, Decorator, Strategy, Observer)
+- Conceito do SwarmGAP, AL, SAL, LAL

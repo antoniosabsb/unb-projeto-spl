@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import feature.recurso.interfaces.Recurso;
+import feature.recurso.decorator.RecursoDecorator;
 import interfaces.Print;
 
 public class SwarmGAP implements Print {
@@ -27,13 +27,13 @@ public class SwarmGAP implements Print {
 		
 		log.append("\nQuantidade Tarefas Antes: "+ tarefas.size());
 
-		List<Recurso> recursosDrone = drone.getRecursos();
+		List<RecursoDecorator> recursosDrone = drone.getRecursos();
 		Tarefa tarefaAExcluir = null; 
 		for (Tarefa tarefa : tarefas) {
 			boolean retorno = false;
-			List<Recurso> recursosTarefa = tarefa.getRecursos();
-			for (Recurso recursoT : recursosTarefa) {
-				for (Recurso recursoD : recursosDrone) {
+			List<RecursoDecorator> recursosTarefa = tarefa.getRecursos();
+			for (RecursoDecorator recursoT : recursosTarefa) {
+				for (RecursoDecorator recursoD : recursosDrone) {
 					retorno = recursoD.getClass().equals(recursoT.getClass());
 					if(retorno) {
 						break;

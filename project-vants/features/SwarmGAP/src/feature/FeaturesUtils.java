@@ -6,15 +6,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import feature.recurso.interfaces.Recurso;
+import feature.recurso.decorator.RecursoDecorator;
 
 public class FeaturesUtils {
 	
-	public static List<Tarefa> retornaTarefas(int qtdRepeticao) {
+	public static int QTD_REPETICAO = 10;
+	
+	public static List<Tarefa> retornaTarefas() {
 		List<Tarefa>tarefas = null;
 		if(tarefas == null){
 			tarefas = new ArrayList<>();
-			for (int i = 0; i < qtdRepeticao; i++) {
+			for (int i = 0; i < FeaturesUtils.QTD_REPETICAO; i++) {
 				tarefas.add(new Tarefa(Tendencia.TENDENCIA_ALTA, FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_ALTA), null));
 				tarefas.add(new Tarefa(Tendencia.TENDENCIA_MEDIA,FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_MEDIA), null));
 				tarefas.add(new Tarefa(Tendencia.TENDENCIA_BAIXA,FeaturesUtils.retornaRecursos(Tendencia.TENDENCIA_BAIXA), null));
@@ -40,22 +42,19 @@ public class FeaturesUtils {
 		return drone;
 	}
 	
-	public static List<Recurso> retornaRecursos(){
-		List<Recurso> recursos = new ArrayList<>(1);
-		File dir = new File(System.getProperty("user.dir")+"/src/recurso/");
-		if(!dir.isDirectory()){
-			dir = new File(System.getProperty("user.dir")+"/features/SwarmGAP/src/feature/recurso/");
-		}
+	public static List<RecursoDecorator> retornaRecursos(){
+		List<RecursoDecorator> recursos = new ArrayList<>(1);
+		File dir = new File(System.getProperty("user.dir")+"/features/SwarmGAP/src/feature/recurso/");
 		if(dir.isDirectory()){
 			for(File obj : dir.listFiles()){
 				String [] lista = obj.toString().split("/");
 				String nomeClasse = lista[lista.length-1];
-				if(nomeClasse.startsWith("inter")){
+				if(nomeClasse.startsWith("decor")){
 					continue;
 				}
 				nomeClasse = nomeClasse.substring(0, nomeClasse.length()-5);
 				try {
-					recursos.add((Recurso) Class.forName("feature.recurso."+nomeClasse).newInstance());
+					recursos.add((RecursoDecorator) Class.forName("feature.recurso."+nomeClasse).newInstance());
 				} catch (IllegalAccessException | ClassNotFoundException | InstantiationException e) {
 					e.printStackTrace();
 				}
@@ -64,8 +63,8 @@ public class FeaturesUtils {
 		return recursos;
 	}
 	
-	public static List<Recurso> retornaRecursos(Tendencia tendencia){
-		List<Recurso> recursos = new ArrayList<Recurso>();;
+	public static List<RecursoDecorator> retornaRecursos(Tendencia tendencia){
+		List<RecursoDecorator> recursos = new ArrayList<RecursoDecorator>();;
 		switch (tendencia) {
 		case TENDENCIA_BAIXA:
 			recursos.add(retornaRecursos().get(0));
@@ -94,7 +93,6 @@ public class FeaturesUtils {
 	}
 	
 	public static void main(String[] args) {
-		
 	}
 
 }

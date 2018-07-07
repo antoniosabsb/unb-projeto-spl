@@ -5,6 +5,7 @@ import java.util.List;
 public class FeatureDTO {
 	private List<Tarefa> tarefas;
 	private Drone drone;
+	private StringBuilder log;
 	
 	public List<Tarefa> getTarefas() {
 		return tarefas;
@@ -17,6 +18,12 @@ public class FeatureDTO {
 	}
 	public void setDrone(Drone drone) {
 		this.drone = drone;
+	}
+	public StringBuilder getLog() {
+		return log;
+	}
+	public void setLog(StringBuilder log) {
+		this.log = log;
 	}
 
 }

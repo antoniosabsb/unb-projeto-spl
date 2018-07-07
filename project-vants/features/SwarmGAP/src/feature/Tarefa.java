@@ -6,24 +6,24 @@ import java.util.List;
 import feature.recurso.Camera;
 import feature.recurso.Holofote;
 import feature.recurso.VelocidadeTurbo;
-import feature.recurso.interfaces.Recurso;
+import feature.recurso.decorator.RecursoDecorator;
 
-public class Tarefa implements Comparable {
+public class Tarefa implements Comparable<Object> {
 	
 	private Tendencia tendencia;
 	private Drone drone;
-	private List<Recurso> recursos;
+	private List<RecursoDecorator> recursos;
 	
-	public Tarefa(Tendencia tendencia, List<Recurso> recursos, Drone drone) {
+	public Tarefa(Tendencia tendencia, List<RecursoDecorator> recursos, Drone drone) {
 		this.tendencia = tendencia;
 		this.recursos = recursos;
 		this.drone = drone;
 	}
 	
-	public List<Recurso> getRecursos() {
+	public List<RecursoDecorator> getRecursos() {
 		return recursos;
 	}
-	public void setRecursos(List<Recurso> recursos) {
+	public void setRecursos(List<RecursoDecorator> recursos) {
 		this.recursos = recursos;
 	}
 	public Tendencia getTendencia() {
@@ -39,8 +39,8 @@ public class Tarefa implements Comparable {
 		this.drone = drone;
 	} 
 	
-	public static List<Recurso> retornaRecursos(Tendencia tendencia){
-		List<Recurso> retorno = new ArrayList<Recurso>();;
+	public static List<RecursoDecorator> retornaRecursos(Tendencia tendencia){
+		List<RecursoDecorator> retorno = new ArrayList<RecursoDecorator>();;
 		switch (tendencia) {
 		case TENDENCIA_BAIXA:
 			retorno.add(new Camera());

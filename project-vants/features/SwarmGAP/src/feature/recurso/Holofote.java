@@ -1,12 +1,23 @@
 package feature.recurso;
 
-import feature.recurso.interfaces.Recurso;
+import feature.recurso.decorator.Decorator;
+import feature.recurso.decorator.RecursoDecorator;
 
-public class Holofote implements Recurso {
+public class Holofote extends Decorator{
+	
+	public Holofote() {}
 
-	@Override
-	public void execute() {
-		System.out.println("Usando holofote.");
+	public Holofote(RecursoDecorator component) {
+		super(component);
 	}
 
+	private void executeHolofote() {
+		System.out.println("Usando Holofote.");
+	}
+	
+	public void execute() {
+		super.execute();
+		executeHolofote();
+	}
+	
 }
