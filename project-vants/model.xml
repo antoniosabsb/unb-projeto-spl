@@ -3,15 +3,24 @@
     <properties/>
     <struct>
         <and abstract="true" mandatory="true" name="projectvants">
-            <alt name="SwarmGAP">
+            <and mandatory="true" name="SwarmGAP">
                 <feature name="AL"/>
                 <and name="SAL">
                     <feature name="LAL"/>
                 </and>
-            </alt>
+            </and>
         </and>
     </struct>
-    <constraints/>
+    <constraints>
+        <rule>
+            <imp>
+                <var>AL</var>
+                <not>
+                    <var>SAL</var>
+                </not>
+            </imp>
+        </rule>
+    </constraints>
     <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
     <comments/>
     <featureOrder userDefined="false"/>

@@ -12,6 +12,7 @@ public class LimitAlocationLoop extends PrintTemplate {
 		FeatureDTO dto = processaStategy(tarefas, drones, LimitAlocationLoop.class.getName());
 		
 		System.out.println(dto.getLog().toString());
+		ehExecutavel = true;
 	}
 	
 	public static void main(String[] args) {

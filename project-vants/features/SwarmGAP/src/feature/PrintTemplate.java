@@ -7,6 +7,8 @@ import java.util.List;
 import interfaces.Print;
 
 public abstract class PrintTemplate implements Print{
+	
+	protected static boolean ehExecutavel;
 
 	@Override
 	public void print() {
@@ -17,6 +19,7 @@ public abstract class PrintTemplate implements Print{
 	
 	public FeatureDTO processaStategy(List<Tarefa> tarefas, List<Drone> drones, String nomeClasse) {
 		FeatureDTO processaDTO = null;
+		boolean ehLAL = nomeClasse.startsWith("Limit");
 		int size = tarefas.size();
 		StringBuilder log = new StringBuilder();
 		log.append("\n"+nomeClasse);
@@ -26,6 +29,8 @@ public abstract class PrintTemplate implements Print{
 		SwarmGAP swarm = null;
 		for (int i=0; i< size;i++) {
 			for (Drone drone : drones) {
+				if(ehLAL && drone.isVisitado())
+					continue;
 				swarm = new SwarmGAP(drone,tarefas);
 				processaDTO = swarm.processaAnalise(false);
 				if(processaDTO.getTarefas().size() < size) {
